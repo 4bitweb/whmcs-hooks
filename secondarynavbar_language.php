@@ -1,5 +1,8 @@
 <?php
 
+if (!defined("WHMCS"))
+    die("This file cannot be accessed directly");
+
 use WHMCS\ClientArea;
 use WHMCS\View\Menu\Item as MenuItem;
 
