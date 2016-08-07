@@ -3,22 +3,6 @@
 if (!defined("WHMCS"))
     die("This file cannot be accessed directly");
 
-function db_invoice_total($invoice_id)
-{
-    $invoice_total = '0.00';
-    return $invoice_total;
-}
-
-function delete_invoice($invoice_id)
-{
-    return true;
-}
-
-function update_next_invoice($invoice_id)
-{
-    return true;
-}
-
 function suppress_00_invoice($vars)
 {
     $merge_fields = array();
@@ -33,8 +17,6 @@ function suppress_00_invoice($vars)
             $merge_fields['abortsend'] = true;
         }
 
-        delete_invoice($invoice_id);
-        update_next_invoice($invoice_id);
     }
 
     return $merge_fields;
