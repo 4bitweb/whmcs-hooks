@@ -3,6 +3,15 @@
 if (!defined("WHMCS"))
     die("This file cannot be accessed directly");
 
+// use WHMCS (Laravel) db functions
+use Illuminate\Database\Capsule\Manager as Capsule;
+
+function db_invoice_total($invoice_id)
+{
+    return Capsule::table('tblinvoiceitems')->where('invoiceid', $invoice)
+                                            ->sum('amount');
+}
+
 function suppress_00_invoice($vars)
 {
     $merge_fields = array();
