@@ -7,9 +7,15 @@ add_hook('ClientAreaPrimaryNavbar', 1, function (MenuItem $primaryNavbar)
     if (!is_null($primaryNavbar->getChild('Home'))) {
         $primaryNavbar->getChild('Home')
             ->addChild('Web Ana Sayfa', array(
-                'label' => Lang::trans('webhomepage'),
+                'label' => 'Web',
                 'uri' => 'https://4-bit.net',
                 'order' => '100',
+	));
+	$primaryNavbar->getChild('Home')
+            ->addChild('Panel Ana Sayfa', array(
+                'label' => 'Panel',
+                'uri' => 'https://panel.4-bit.net',
+                'order' => '99',
             ));
     }
 });
