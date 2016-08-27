@@ -1,7 +1,7 @@
 <?php
- 
+
 use WHMCS\View\Menu\Item as MenuItem;
- 
+
 add_hook('ClientAreaPrimaryNavbar', 1, function (MenuItem $primaryNavbar)
 {
     if (!is_null($primaryNavbar->getChild('Home'))) {
@@ -14,7 +14,7 @@ add_hook('ClientAreaPrimaryNavbar', 1, function (MenuItem $primaryNavbar)
 	$primaryNavbar->getChild('Home')
             ->addChild('Panel Ana Sayfa', array(
                 'label' => 'Panel',
-                'uri' => 'https://panel.4-bit.net',
+                'uri' => '/',
                 'order' => '99',
             ));
     }
