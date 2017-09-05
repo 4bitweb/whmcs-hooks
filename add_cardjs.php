@@ -32,9 +32,9 @@ add_hook('ClientAreaFooterOutput', 50, function($vars) {
     }
 
     $('#frmNewCc').card({
-        container: '#credit-card',
+        container: '#ccpanel',
         formSelectors: {
-            numberInput: 'input#inputCardNumber',
+            numberInput: 'input[name="ccnumber"]',
             expiryInput: 'input[name="ccexpirymonth"], input[name="ccexpiryyear"]',
             cvcInput: 'input[name="cardcvv"]'
         },
@@ -48,21 +48,21 @@ add_hook('ClientAreaFooterOutput', 50, function($vars) {
         }
     });
     document.getElementById('inputCardNumber')
-        .addEventListener('payment.cardType', function(event) {
-            $('#inputCardType').val(cardjsTypeMap[event.detail]);
-        });
-    </script>
+       .addEventListener('payment.cardType', function(event) {
+           $('#inputCardType').val(cardjsTypeMap[event.detail]);
+       });
+   </script>
 HTML;
 
-    if ($cardtype != '')
-    {
-        $cardclass = strtolower($cardtype);
-        $returnVal .= <<<HTML
-        <script>
-        $('.jp-card').removeClass('jp-card-unknown').addClass('jp-card-' + whmcsTypeMap['{$cardclass}']).addClass('jp-card-identified');
-        </script>
+   if ($cardtype != '')
+   {
+       $cardclass = strtolower($cardtype);
+       $returnVal .= <<<HTML
+       <script>
+       $('.jp-card').removeClass('jp-card-unknown').addClass('jp-card-' + whmcsTypeMap['{$cardclass}']).addClass('jp-card-identified');
+       </script>
 HTML;
-    }
+   }
 
-    return $returnVal;
+   return $returnVal;
 });
